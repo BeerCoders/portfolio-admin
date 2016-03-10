@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form name="resetForm" ng-submit="$ctrl.verify()" role="form" class="form-signin" novalidate>
+                <div class="form-group required" ng-class="{ 'has-error': resetForm.plainPassword_first.$touched && resetForm.plainPassword_first.$invalid }">
+                    <div class="row">
+                        <label class="label col-lg-4" for="plainPassword_first">Password:</label>
+                        <div class="col-lg-8">
+                            <input
+                                    ng-model="$ctrl.plainPassword_first"
+                                    type="password"
+                                    name="plainPassword_first"
+                                    id="plainPassword_first"
+                                    class="form-control custom"
+                                    ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])([a-zA-Z\d]{6})/"
+                                    required
+                            />
+                        </div>
+                        <div class="col-lg-12">
+                            <validator field="plainPassword_first" model="$ctrl.plainPassword_first" errors="$ctrl.errors"></validator>
+                            <div class="help-block"
+                                 ng-messages="resetForm.plainPassword_first.$error"
+                                 ng-show="resetForm.plainPassword_first.$touched && resetForm.plainPassword_first.$invalid">
+                                <p ng-message="pattern">Password has to be 6 chars long, contain at least 1 uppercase, lowercase and 1 numeric character.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group required"
+                     ng-class="{ 'has-error': resetForm.plainPassword_second.$touched && resetForm.plainPassword_second.$invalid }">
+                    <div class="row">
+                        <label class="label col-lg-4" for="plainPassword_second">Confirm Password:</label>
+                        <div class="col-lg-8">
+                            <input
+                                    ng-model="$ctrl.plainPassword_second"
+                                    type="password"
+                                    name="plainPassword_second"
+                                    id="plainPassword_second"
+                                    class="form-control custom"
+                                    match="$ctrl.plainPassword_first"
+                                    required
+                            />
+                        </div>
+                        <div class="col-lg-12">
+                            <validator field="plainPassword_second" model="$ctrl.plainPassword_second" errors="$ctrl.errors"></validator>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions text-center">
+                    <button
+                            ng-disabled="resetForm.$invalid"
+                            class="btn btn-lg btn-primary btn-block"
+                            data-backdrop="static"
+                            data-keyboard="false"
+                            type="submit">
+                        Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

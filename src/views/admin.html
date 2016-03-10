@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-1">
+            <div class="user clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+                    <div class="circle">
+                        <gravatar email="$ctrl.user.email" size="150"></gravatar>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-9 col-xs-12 text-center">
+                    <h1>{{ $ctrl.user.name }}</h1>
+                    <h4>{{ $ctrl.user.title }}</h4>
+                    <h6><span class="fa fa-map-marker"></span> {{ $ctrl.user.location }}</h6>
+                    <p>{{ $ctrl.user.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <h3 class="title">Skills</h3>
+            <ul class="skills">
+                <li ng-repeat="skill in $ctrl.user.skills">
+                    <h5>
+                        <i class="fa fa-check"></i>
+                        {{ skill.name }}
+                        <span>
+                            <i class="fa fa-circle" ng-repeat="i in $ctrl.getTimes(skill.value)"></i>
+                        </span>
+                    </h5>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3">
+            <h3 class="title">Experience</h3>
+            <ul>
+                <li ng-repeat="job in $ctrl.user.jobs">
+                    <h5>
+                        {{ job.position }}
+                        <span class="duration"><i class="fa fa-calendar color"></i> {{ job.period }}</span>
+                    </h5>
+                    <h6><span class="fa fa-briefcase"></span> {{ job.company }}</h6>
+                    <p>{{ job.description }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form name="loginForm" class="form-signin" ng-submit="$ctrl.login()" role="form" >
+                <h2 class="form-signin-heading">Please sign in</h2>
+
+                <div class="form-group required"
+                     ng-class="{ 'has-error': loginForm.username.$touched && loginForm.username.$invalid }">
+                    <label for="email" class="sr-only">Email address</label>
+                    <input type="email"
+                           ng-model="$ctrl.email"
+                           id="email"
+                           name="email"
+                           class="form-control"
+                           placeholder="Email address"
+                           required
+                           autofocus>
+                    <validator symfony-form="$ctrl.form" field="email" model="$ctrl.email" errors="$ctrl.errors"></validator>
+                </div>
+
+                <div class="form-group required"
+                     ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password"
+                           ng-model="$ctrl.password"
+                           id="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Password"
+                           required>
+                    <validator symfony-form="$ctrl.form" field="password" model="$ctrl.password" errors="$ctrl.errors"></validator>
+                    <p class="text-right"><a href ui-sref="forgotPassword">Forgot password?</a></p>
+                </div>
+
+                <button
+                        ng-disabled="loginForm.$invalid"
+                        class="btn btn-lg btn-primary btn-block"
+                        data-backdrop="static"
+                        data-keyboard="false"
+                        type="submit">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

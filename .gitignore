@@ -1,0 +1,6 @@
+.idea
+/src/constants.js
+/node_modules
+/typings
+/coverage
+/reports
