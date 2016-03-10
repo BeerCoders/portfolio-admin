@@ -26,6 +26,7 @@ import {config as routesConfig} from "./configs/routes";
 import {config as repositoryConfig} from "./configs/repository";
 import {config as oauthConfig} from "./configs/oauth";
 import {config as aclConfig} from "./configs/acl";
+import {run as aclRun} from "./configs/acl";
 import {LoginComponent} from "./components/LoginComponent";
 import {AdminComponent} from "./components/AdminComponent";
 import {ForgotPasswordComponent} from "./components/ForgotPasswordComponent";
@@ -54,7 +55,8 @@ angular.module(appName, requirements)
     .constant("Settings", new Settings())
     .config(oauthConfig)
     .config(routesConfig)
-    .config(repositoryConfig);
+    .config(repositoryConfig)
+    .run(aclRun);
 
 angular.bootstrap(document, ["app"], {
     strictDi: true

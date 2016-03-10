@@ -22,3 +22,11 @@ export function config(AccessServiceProvider) {
     };
     AccessServiceProvider.config(myConfig);
 }
+
+run.$inject = ['$rootScope', '$window'];
+
+export function run($rootScope, $window) {
+    $rootScope.$on('vsymfonyacl:error', function (event, user) {
+        return $window.location.href = '/login';
+    });
+}
