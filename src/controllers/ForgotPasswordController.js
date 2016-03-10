@@ -7,10 +7,10 @@
  * file that was distributed with this source code.
  */
 
-ForgotPasswordController.$inject = ['$state', 'Auth', 'Flash'];
-
 export class ForgotPasswordController {
     constructor($state, Auth, Flash) {
+        this.$inject = ['$state', 'Auth', 'Flash'];
+
         this.Auth = Auth;
         this.Flash = Flash;
         this.$state = $state;

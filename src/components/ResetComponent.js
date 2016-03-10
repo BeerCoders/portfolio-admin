@@ -10,6 +10,8 @@
 import {ResetController} from "./../controllers/ResetController";
 
 export class ResetComponent {
-    template = require('./../views/reset.html');
-    controller = ResetController;
+    constructor() {
+        this.template = require('./../views/reset.html');
+        this.controller = ResetController;
+    }
 }

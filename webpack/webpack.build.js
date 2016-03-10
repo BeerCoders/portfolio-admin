@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        build: './src/app.ts',
+        build: './src/app.js',
         vendors: ['angular', 'bootstrap', 'angular-ui-router']
     },
     output: {

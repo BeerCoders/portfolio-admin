@@ -8,5 +8,7 @@
  */
 
 export class AdminPostsComponent {
-    public template = require('./../views/adminPosts.html');
+    constructor() {
+        this.template = require('./../views/adminPosts.html');
+    }
 }

@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-ResetController.$inject = ['$state', '$stateParams', 'Auth', 'Flash'];
-
 export class ResetController {
-    errors = null;
-    form = 'fos_user_resetting_form';
 
     constructor($state, $stateParams, Auth, Flash) {
+        this.$inject = ['$state', '$stateParams', 'Auth', 'Flash'];
+
         this.Auth = Auth;
         this.Flash = Flash;
         this.$state = $state;
@@ -21,6 +19,9 @@ export class ResetController {
 
         this.title = 'BeerCoders Team';
         this.subtitle = 'Software Development tips & tricks';
+        
+        this.errors = null;
+        this.form = 'fos_user_resetting_form';
     }
 
     verify() {

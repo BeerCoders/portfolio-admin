@@ -10,14 +10,16 @@
 import "./../resources/styles/main.sass";
 import "./../resources/scripts/scripts.js";
 
-import 'angular';
 import 'angular-ui-router';
+import 'angular-flash-alert';
+import 'angular-messages';
+import 'angular-resource';
+
 import 'angular-repository';
 import 'angular-symfony-acl';
 import 'angular-symfony-form';
 import 'angular-vgravatar';
 import 'angular-voauth2';
-import 'query-string';
 
 import {Settings} from "./constants";
 import {config as routesConfig} from "./configs/routes";

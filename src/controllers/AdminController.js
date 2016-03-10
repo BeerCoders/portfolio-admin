@@ -7,13 +7,13 @@
  * file that was distributed with this source code.
  */
 
-import {User} from "./../../main/entity/User";
-
-AdminController.$inject = ['RepositoryFactory'];
+import {User} from "./../entity/User";
 
 export class AdminController {
 
     constructor(factory) {
+        this.$inject = ['RepositoryFactory'];
+
         this.factory = factory;
         this.repository = this.getRepository(User, '/users');
 

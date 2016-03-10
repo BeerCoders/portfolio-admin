@@ -8,5 +8,7 @@
  */
 
 export class HeaderComponent {
-    template = require('./../views/header.html');
+    constructor() {
+        this.template = require('./../views/header.html');
+    }
 }

@@ -8,5 +8,7 @@
  */
 
 export class FooterComponent {
-    template = require('./../views/footer.html');
+    constructor() {
+        this.template = require('./../views/footer.html');
+    }
 }

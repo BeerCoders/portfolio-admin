@@ -10,6 +10,8 @@
 import {AdminController} from "./../controllers/AdminController";
 
 export class AdminComponent {
-    template = require('./../views/admin.html');
-    controller = AdminController;
+    constructor() {
+        this.template = require('./../views/admin.html');
+        this.controller = AdminController;
+    }
 }

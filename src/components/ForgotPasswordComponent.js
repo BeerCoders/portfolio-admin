@@ -10,6 +10,8 @@
 import {ForgotPasswordController} from "./../controllers/ForgotPasswordController";
 
 export class ForgotPasswordComponent {
-    template = require('./../views/forgotPassword.html');
-    controller = ForgotPasswordController;
+    constructor() {
+        this.template = require('./../views/forgotPassword.html');
+        this.controller = ForgotPasswordController;
+    }
 }

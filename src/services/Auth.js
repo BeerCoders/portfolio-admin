@@ -9,11 +9,11 @@
 
 import {Settings} from "../constants";
 
-Auth.$inject = ['$http', 'AccessService', 'OAuth', 'Settings'];
-
 export class Auth {
 
     constructor($http, AccessService, OAuth, Settings) {
+        this.$inject = ['$http', 'AccessService', 'OAuth', 'Settings'];
+
         this.http = $http;
         this.OAuth = OAuth;
         this.AccessService = AccessService;
@@ -45,7 +45,7 @@ export class Auth {
             data: data
         };
 
-        return this.http(req).then(function (response:any) {
+        return this.http(req).then(function (response) {
             return response.data;
         });
     }

@@ -10,6 +10,8 @@
 import {LoginController} from "./../controllers/LoginController";
 
 export class LoginComponent {
-    template = require('./../views/login.html');
-    controller = LoginController;
+    constructor() {
+        this.template = require('./../views/login.html');
+        this.controller = LoginController;
+    }
 }
