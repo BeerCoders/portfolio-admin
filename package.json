@@ -16,7 +16,7 @@
     "angular-messages": "^1.5.0",
     "angular-repository": "^0.1.7",
     "angular-resource": "^1.5.0",
-    "angular-symfony-acl": "^1.0.5",
+    "angular-symfony-acl": "^1.0.8",
     "angular-symfony-form": "^2.0.4",
     "angular-ui-router": "^0.2.18",
     "angular-vgravatar": "^0.1.2",
