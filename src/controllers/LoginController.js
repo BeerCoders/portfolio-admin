@@ -7,8 +7,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 export class LoginController {
 
     constructor($state, Auth, Flash) {

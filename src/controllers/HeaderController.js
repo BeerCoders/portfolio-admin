@@ -7,11 +7,13 @@
  * file that was distributed with this source code.
  */
 
-import {HeaderController} from "./../controllers/HeaderController";
+import {User} from "./../entity/User";
 
-export class HeaderComponent {
-    constructor() {
-        this.template = require('./../views/header.html');
-        this.controller = HeaderController;
+export class HeaderController {
+
+    constructor(AccessService) {
+        this.user = AccessService.getUser();
     }
 }
+
+HeaderController.$inject = ['AccessService'];

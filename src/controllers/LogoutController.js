@@ -7,11 +7,12 @@
  * file that was distributed with this source code.
  */
 
-import {HeaderController} from "./../controllers/HeaderController";
+export class LogoutController {
 
-export class HeaderComponent {
-    constructor() {
-        this.template = require('./../views/header.html');
-        this.controller = HeaderController;
+    constructor($state, AccessService) {
+        AccessService.setUser(null);
+        $state.go('admin', {}, {'reload': true});
     }
 }
+
+LogoutController.$inject = ['$state', 'AccessService'];

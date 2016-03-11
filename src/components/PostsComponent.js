@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
-export class AdminPostsComponent {
+export class PostsComponent {
     constructor() {
-        this.template = require('./../views/adminPosts.html');
+        this.template = require('./../views/posts.html');
     }
 }

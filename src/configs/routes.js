@@ -24,6 +24,10 @@ export function config($stateProvider, $locationProvider, $urlRouterProvider) {
             url: '/login',
             template: '<login></login>'
         })
+        .state('logout', {
+            url: '/logout',
+            template: '<logout></logout>'
+        })
         .state('forgotPassword', {
             url: '/reset',
             template: '<forgot-password></forgot-password>'

@@ -28,9 +28,13 @@ import {config as oauthConfig} from "./configs/oauth";
 import {config as aclConfig} from "./configs/acl";
 import {run as aclRun} from "./configs/acl";
 import {LoginComponent} from "./components/LoginComponent";
+import {LogoutComponent} from "./components/LogoutComponent";
 import {AdminComponent} from "./components/AdminComponent";
 import {ForgotPasswordComponent} from "./components/ForgotPasswordComponent";
 import {ResetComponent} from "./components/ResetComponent";
+import {HeaderComponent} from "./components/HeaderComponent";
+import {FooterComponent} from "./components/FooterComponent";
+import {PostsComponent} from "./components/PostsComponent";
 import {Auth} from "./services/Auth";
 
 const appName = 'app';
@@ -47,16 +51,20 @@ const requirements = [
 ];
 
 angular.module(appName, requirements)
+    .component("headerNav", new HeaderComponent())
+    .component("footerNav", new FooterComponent())
     .component("login", new LoginComponent())
+    .component("logout", new LogoutComponent())
     .component("forgotPassword", new ForgotPasswordComponent())
     .component("reset", new ResetComponent())
     .component("admin", new AdminComponent())
-    .service("Auth", Auth)
     .constant("Settings", new Settings())
+    .service("Auth", Auth)
     .config(oauthConfig)
     .config(routesConfig)
     .config(repositoryConfig)
-    .run(aclRun);
+    .run(aclRun)
+    .component("posts", new PostsComponent());
 
 angular.bootstrap(document, ["app"], {
     strictDi: true

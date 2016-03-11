@@ -7,11 +7,10 @@
  * file that was distributed with this source code.
  */
 
-import {HeaderController} from "./../controllers/HeaderController";
+import {LogoutController} from "./../controllers/LogoutController";
 
-export class HeaderComponent {
+export class LogoutComponent {
     constructor() {
-        this.template = require('./../views/header.html');
-        this.controller = HeaderController;
+        this.controller = LogoutController;
     }
 }

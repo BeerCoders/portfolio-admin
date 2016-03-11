@@ -15,8 +15,9 @@ export class AdminController {
         this.factory = factory;
         this.repository = this.getRepository(User, '/users');
 
-        this.repository.getById(1).then((response) => {
-            this.user = response;
+        this.repository.getAll().then((response) => {
+            this.items = response;
+            this.col = 'col-lg-' + (this.items.length < 4 ? Math.ceil(12 / this.items.length) : '4');
         });
     }
 
