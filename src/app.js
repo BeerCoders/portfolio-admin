@@ -34,7 +34,11 @@ import {ForgotPasswordComponent} from "./components/ForgotPasswordComponent";
 import {ResetComponent} from "./components/ResetComponent";
 import {HeaderComponent} from "./components/HeaderComponent";
 import {FooterComponent} from "./components/FooterComponent";
-import {PostsComponent} from "./components/PostsComponent";
+import {ArticlesComponent} from "./components/ArticlesComponent";
+import {ProjectsComponent} from "./components/ProjectsComponent";
+import {JobsComponent} from "./components/JobsComponent";
+import {MediasComponent} from "./components/MediasComponent";
+import {SkillsComponent} from "./components/SkillsComponent";
 import {Auth} from "./services/Auth";
 
 const appName = 'app';
@@ -64,7 +68,11 @@ angular.module(appName, requirements)
     .config(routesConfig)
     .config(repositoryConfig)
     .run(aclRun)
-    .component("posts", new PostsComponent());
+    .component("articles", new ArticlesComponent())
+    .component("projects", new ProjectsComponent())
+    .component("jobs", new JobsComponent())
+    .component("medias", new MediasComponent())
+    .component("skills", new SkillsComponent());
 
 angular.bootstrap(document, ["app"], {
     strictDi: true

@@ -7,8 +7,11 @@
  * file that was distributed with this source code.
  */
 
-export class PostsComponent {
+import {ProjectsController} from "./../controllers/ProjectsController";
+
+export class ProjectsComponent {
     constructor() {
-        this.template = require('./../views/posts.html');
+        this.template = require('./../views/projects.html');
+        this.controller = ProjectsController;
     }
 }

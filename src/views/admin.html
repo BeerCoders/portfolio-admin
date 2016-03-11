@@ -1,7 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
-            <h1>Dashboard</h1>
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#articles" aria-controls="home" role="tab" data-toggle="tab">Articles</a></li>
+                <li role="presentation"><a href="#jobs" aria-controls="articles" role="tab" data-toggle="tab">Jobs</a></li>
+                <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
+                <li role="presentation"><a href="#skills" aria-controls="skills" role="tab" data-toggle="tab">Skills</a></li>
+                <li role="presentation"><a href="#medias" aria-controls="medias" role="tab" data-toggle="tab">Medias</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="articles"><articles></articles></div>
+                <div role="tabpanel" class="tab-pane" id="jobs"><jobs></jobs></div>
+                <div role="tabpanel" class="tab-pane" id="projects"><projects></projects></div>
+                <div role="tabpanel" class="tab-pane" id="skills"><skills></skills></div>
+                <div role="tabpanel" class="tab-pane" id="medias"><medias></medias></div>
+            </div>
         </div>
     </div>
 </div>

@@ -7,12 +7,38 @@
  * file that was distributed with this source code.
  */
 
-import {User} from "./../entity/User";
+import {Article} from "./../entity/Article";
+import {Job} from "./../entity/Job";
+import {Project} from "./../entity/Project";
+import {Skill} from "./../entity/Skill";
+import {Media} from "./../entity/Media";
 
 export class AdminController {
 
-    constructor() {
+    constructor(factory) {
+        let limit = 9999;
+        let repositories = {
+            articles: {class: Article, path: '/articles'},
+            jobs: {class: Job, path: '/jobs'},
+            projects: {class: Project, path: '/projects'},
+            skills: {class: Skill, path: '/skills'},
+            medias: {class: Media, path: '/social-medias'}
+        };
+
+        var lists = this.lists = {};
+
+        for (let key in repositories) {
+            if (repositories.hasOwnProperty(key)) {
+                let data = repositories[key];
+                let repository = factory.getRepository(data.class, data.path);
+                repository.getAll({
+                    limit: limit
+                }).then((response) => {
+                    lists[key] = response;
+                });
+            }
+        }
     }
 }
 
-AdminController.$inject = [];
+AdminController.$inject = ['RepositoryFactory'];
