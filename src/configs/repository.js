@@ -12,25 +12,27 @@ config.$inject = ["RepositoryFactoryProvider", 'Settings'];
 export function config(RepositoryFactoryProvider, Settings) {
     var myConfig = {
         url: Settings.url,
-        onSuccess: (response) => {
-            if (checkPropertyExistence(response, ['data'])) {
-                let data = response.data;
-                if (data instanceof Array) {
-                    for (var key in data) {
-                        if (data.hasOwnProperty(key)) {
-                            data[key] = new this.model(data[key]);
-                        }
-                    }
-
-                    return data;
-                } else {
-                    return new this.model(data);
-                }
-            }
-        }
+        onSuccess: onSuccess
     };
 
     RepositoryFactoryProvider.configure(myConfig);
+}
+
+function onSuccess(response) {
+    if (checkPropertyExistence(response, ['data'])) {
+        let data = response.data;
+        if (data instanceof Array) {
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    data[key] = new this.model(data[key]);
+                }
+            }
+
+            return data;
+        } else {
+            return new this.model(data);
+        }
+    }
 }
 
 /**

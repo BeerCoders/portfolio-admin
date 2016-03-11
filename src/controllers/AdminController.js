@@ -12,8 +12,6 @@ import {User} from "./../entity/User";
 export class AdminController {
 
     constructor(factory) {
-        this.$inject = ['RepositoryFactory'];
-
         this.factory = factory;
         this.repository = this.getRepository(User, '/users');
 
@@ -26,3 +24,5 @@ export class AdminController {
         return this.factory.getRepository(model, path);
     }
 }
+
+AdminController.$inject = ['RepositoryFactory'];

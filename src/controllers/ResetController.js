@@ -10,8 +10,6 @@
 export class ResetController {
 
     constructor($state, $stateParams, Auth, Flash) {
-        this.$inject = ['$state', '$stateParams', 'Auth', 'Flash'];
-
         this.Auth = Auth;
         this.Flash = Flash;
         this.$state = $state;
@@ -42,3 +40,5 @@ export class ResetController {
         });
     }
 }
+
+ResetController.$inject = ['$state', '$stateParams', 'Auth', 'Flash'];

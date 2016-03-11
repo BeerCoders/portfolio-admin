@@ -8,9 +8,8 @@
  */
 
 export class ForgotPasswordController {
-    constructor($state, Auth, Flash) {
-        this.$inject = ['$state', 'Auth', 'Flash'];
 
+    constructor($state, Auth, Flash) {
         this.Auth = Auth;
         this.Flash = Flash;
         this.$state = $state;
@@ -36,3 +35,5 @@ export class ForgotPasswordController {
         });
     }
 }
+
+ForgotPasswordController.$inject = ['$state', 'Auth', 'Flash'];

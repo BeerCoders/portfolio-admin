@@ -12,8 +12,6 @@ import {Settings} from "../constants";
 export class Auth {
 
     constructor($http, AccessService, OAuth, Settings) {
-        this.$inject = ['$http', 'AccessService', 'OAuth', 'Settings'];
-
         this.http = $http;
         this.OAuth = OAuth;
         this.AccessService = AccessService;
@@ -96,8 +94,10 @@ export class Auth {
 
         return this.http(req).then((response) => {
             if (response.data) {
-                this.AccessService.setUser(response.data);
+                this.AccessService.setUser(response.data.data);
             }
         });
     }
 }
+
+Auth.$inject = ['$http', 'AccessService', 'OAuth', 'Settings'];

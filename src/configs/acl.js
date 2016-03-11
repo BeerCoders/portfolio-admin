@@ -23,10 +23,10 @@ export function config(AccessServiceProvider) {
     AccessServiceProvider.config(myConfig);
 }
 
-run.$inject = ['$rootScope', '$window'];
+run.$inject = ['$rootScope', '$state'];
 
-export function run($rootScope, $window) {
+export function run($rootScope, $state) {
     $rootScope.$on('vsymfonyacl:error', function (event, user) {
-        return $window.location.href = '/login';
+        $state.go('login', {}, {reload: true});
     });
 }

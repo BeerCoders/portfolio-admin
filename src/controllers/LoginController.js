@@ -7,11 +7,11 @@
  * file that was distributed with this source code.
  */
 
+'use strict';
+
 export class LoginController {
 
     constructor($state, Auth, Flash) {
-        this.$inject = ['$state', 'Auth', 'Flash'];
-
         this.Auth = Auth;
         this.Flash = Flash;
         this.$state = $state;
@@ -35,3 +35,5 @@ export class LoginController {
         });
     }
 }
+
+LoginController.$inject = ['$state', 'Auth', 'Flash'];
