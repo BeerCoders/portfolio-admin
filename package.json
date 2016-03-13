@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "angular": "1.5.0-rc.2",
+    "angular-ckeditor": "^0.3.1",
     "angular-flash-alert": "^2.2.4",
     "angular-messages": "^1.5.0",
     "angular-repository": "^0.1.7",

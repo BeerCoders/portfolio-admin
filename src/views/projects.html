@@ -6,17 +6,14 @@
                 <table class="table table-hover table-condensed">
                     <thead>
                     <tr>
-                        <td>Description</td>
-                        <td>Created</td>
-                        <td>Updated</td>
+                        <td>ID</td>
+                        <td>Logo</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="entity in $ctrl.items">
-                        <td><img ng-src="entity.logo"></td>
-                        <td>{{ entity.description }}</td>
-                        <td>{{ entity.created|date }}</td>
-                        <td>{{ entity.updated|date }}</td>
+                        <td>{{ entity.id }}</td>
+                        <td><img ng-src="{{ entity.logo }}"></td>
                     </tr>
                     </tbody>
                 </table>

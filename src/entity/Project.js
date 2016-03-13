@@ -9,7 +9,7 @@
 
 export class Project {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.logo = parameters.logo;
         this.description = parameters.description;

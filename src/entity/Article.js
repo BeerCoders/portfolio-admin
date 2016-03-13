@@ -12,7 +12,7 @@ import {Category} from "./../entity/Category";
 
 export class Article {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.title = parameters.title;
         this.intro = parameters.intro;

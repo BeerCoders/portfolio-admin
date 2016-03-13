@@ -9,7 +9,7 @@
 
 export class Media {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.name = parameters.name;
         this.url = parameters.url;

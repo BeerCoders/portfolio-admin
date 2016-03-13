@@ -9,7 +9,7 @@
 
 export class Job {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.company = parameters.company;
         this.description = parameters.description;

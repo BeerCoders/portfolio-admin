@@ -14,6 +14,7 @@ import 'angular-ui-router';
 import 'angular-flash-alert';
 import 'angular-messages';
 import 'angular-resource';
+import '../node_modules/angular-ckeditor/angular-ckeditor.min';
 
 import 'angular-repository';
 import 'angular-symfony-acl';
@@ -35,6 +36,7 @@ import {ResetComponent} from "./components/ResetComponent";
 import {HeaderComponent} from "./components/HeaderComponent";
 import {FooterComponent} from "./components/FooterComponent";
 import {ArticlesComponent} from "./components/ArticlesComponent";
+import {ArticleComponent} from "./components/ArticleComponent";
 import {ProjectsComponent} from "./components/ProjectsComponent";
 import {JobsComponent} from "./components/JobsComponent";
 import {MediasComponent} from "./components/MediasComponent";
@@ -51,7 +53,8 @@ const requirements = [
     'vSymfonyForm',
     'ngFlash',
     'ngMessages',
-    'ngResource'
+    'ngResource',
+    'ckeditor'
 ];
 
 angular.module(appName, requirements)
@@ -69,6 +72,7 @@ angular.module(appName, requirements)
     .config(repositoryConfig)
     .run(aclRun)
     .component("articles", new ArticlesComponent())
+    .component("article", new ArticleComponent())
     .component("projects", new ProjectsComponent())
     .component("jobs", new JobsComponent())
     .component("medias", new MediasComponent())

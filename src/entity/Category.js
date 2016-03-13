@@ -9,7 +9,7 @@
 
 export class Category {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.name = parameters.name;
         this.position = parameters.position;

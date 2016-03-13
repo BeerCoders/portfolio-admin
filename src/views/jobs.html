@@ -8,20 +8,14 @@
                     <tr>
                         <td>Company</td>
                         <td>Position</td>
-                        <td>Description</td>
                         <td>Period</td>
-                        <td>Created</td>
-                        <td>Updated</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="entity in $ctrl.items">
                         <td>{{ entity.company }}</td>
                         <td>{{ entity.position }}</td>
-                        <td>{{ entity.description }}</td>
                         <td>{{ entity.dateFrom|date }} - {{ entity.dateTo|date }}</td>
-                        <td>{{ entity.created|date }}</td>
-                        <td>{{ entity.updated|date }}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -9,7 +9,7 @@
 
 export class User {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.email = parameters.email;
         this.name = parameters.name;

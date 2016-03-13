@@ -9,7 +9,7 @@
 
 export class Skill {
 
-    constructor(parameters) {
+    constructor(parameters = {}) {
         this.id = parameters.id;
         this.name = parameters.name;
         this.value = parameters.value;

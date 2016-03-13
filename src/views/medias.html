@@ -8,16 +8,12 @@
                     <tr>
                         <td>Name</td>
                         <td>URL</td>
-                        <td>Created</td>
-                        <td>Updated</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="entity in $ctrl.items">
                         <td>{{ entity.name }}</td>
-                        <td>{{ entity.url }}</td>
-                        <td>{{ entity.created|date }}</td>
-                        <td>{{ entity.updated|date }}</td>
+                        <td><a ng-href="{{ entity.url }}">{{ entity.url }}</a></td>
                     </tr>
                     </tbody>
                 </table>
