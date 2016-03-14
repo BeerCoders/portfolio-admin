@@ -36,11 +36,15 @@ import {ResetComponent} from "./components/ResetComponent";
 import {HeaderComponent} from "./components/HeaderComponent";
 import {FooterComponent} from "./components/FooterComponent";
 import {ArticlesComponent} from "./components/ArticlesComponent";
-import {ArticleComponent} from "./components/ArticleComponent";
 import {ProjectsComponent} from "./components/ProjectsComponent";
 import {JobsComponent} from "./components/JobsComponent";
 import {MediasComponent} from "./components/MediasComponent";
 import {SkillsComponent} from "./components/SkillsComponent";
+import {ArticleComponent} from "./components/ArticleComponent";
+import {JobComponent} from "./components/JobComponent";
+import {MediaComponent} from "./components/MediaComponent";
+import {ProjectComponent} from "./components/ProjectComponent";
+import {SkillComponent} from "./components/SkillComponent";
 import {Auth} from "./services/Auth";
 
 const appName = 'app';
@@ -72,11 +76,15 @@ angular.module(appName, requirements)
     .config(repositoryConfig)
     .run(aclRun)
     .component("articles", new ArticlesComponent())
-    .component("article", new ArticleComponent())
     .component("projects", new ProjectsComponent())
     .component("jobs", new JobsComponent())
     .component("medias", new MediasComponent())
-    .component("skills", new SkillsComponent());
+    .component("skills", new SkillsComponent())
+    .component("article", new ArticleComponent())
+    .component("job", new JobComponent())
+    .component("media", new MediaComponent())
+    .component("project", new ProjectComponent())
+    .component("skill", new SkillComponent());
 
 angular.bootstrap(document, ["app"], {
     strictDi: true

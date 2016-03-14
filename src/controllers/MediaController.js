@@ -7,36 +7,41 @@
  * file that was distributed with this source code.
  */
 
-import {Article} from "./../entity/Article";
+import {Media} from "./../entity/Media";
+import {Icon} from "./../entity/Icon";
 
-export class ArticleController {
+export class MediaController {
 
     constructor($stateParams, factory, Flash) {
         this.Flash = Flash;
-        this.repository = factory.getRepository(Article, '/articles');
-        this.article = new Article();
+        this.repository = factory.getRepository(Media, '/social-medias');
+        this.entity = new Media();
         this.params = $stateParams;
-        this.form = 'article';
+        this.form = 'social-media';
         this.errors = [];
-        this.options = {
-            language: 'en',
-            allowedContent: true,
-            entities: false
-        };
 
         if ($stateParams.id) {
-            this.repository.getById($stateParams.id).then((article) => {
-                this.article = article;
+            this.repository.getById($stateParams.id).then((data) => {
+                this.entity = data;
             });
         }
+
+        this.icons = [];
+        let iconsRepo = factory.getRepository(Icon, '/icons');
+        iconsRepo.getAll({
+            page: 1,
+            limit: 9999
+        }).then((response) => {
+            this.icons = response;
+        });
     }
 
     update() {
         let data = {
-            article: {
-                title: this.article.title,
-                intro: this.article.intro,
-                body: this.article.body
+            social_media: {
+                name: this.entity.name,
+                url: this.entity.url,
+                icon: this.entity.icon.name || this.entity.icon
             }
         };
 
@@ -70,4 +75,4 @@ export class ArticleController {
     }
 }
 
-ArticleController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];
+MediaController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form name="projectForm" ng-submit="$ctrl.update()" role="form">
+                <div class="form-group required" ng-class="{ 'has-error': projectForm.logo.$touched && projectForm.logo.$invalid }">
+                    <input type="url"
+                           ng-model="$ctrl.entity.logo"
+                           id="logo"
+                           name="logo"
+                           class="form-control"
+                           placeholder="Logo"
+                           required
+                           autofocus>
+                    <validator symfony-form="$ctrl.form" field="company" model="$ctrl.entity.logo" errors="$ctrl.errors"></validator>
+                </div>
+                <div class="form-group required" ng-class="{ 'has-error': projectForm.description.$touched && projectForm.description.$invalid }">
+                    <label for="description" class="sr-only">Description</label>
+                    <textarea ng-model="$ctrl.entity.description"
+                              id="description"
+                              name="description"
+                              class="form-control"
+                              required>
+                    </textarea>
+                    <validator symfony-form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
+                </div>
+
+                <button
+                        ng-disabled="projectForm.$invalid"
+                        class="btn btn-lg btn-primary"
+                        data-backdrop="static"
+                        data-keyboard="false"
+                        type="submit">
+                    Update
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

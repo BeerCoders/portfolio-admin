@@ -7,13 +7,12 @@
  * file that was distributed with this source code.
  */
 
-export class LogoutController {
+export class Icon {
 
-    constructor($location, AccessService) {
-        AccessService.setUser(null);
-        $location.path('/login');
-        $location.replace();
+    constructor(parameters = {}) {
+        this.id = parameters.id;
+        this.name = parameters.name;
+        this.created = parameters.created;
+        this.updated = parameters.updated;
     }
 }
-
-LogoutController.$inject = ['$location', 'AccessService'];

@@ -41,5 +41,29 @@ export function config($stateProvider, $locationProvider, $urlRouterProvider) {
             requireLogin: true,
             roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
             template: '<article></article>'
+        })
+        .state('project', {
+            url: '/project/:id',
+            requireLogin: true,
+            roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+            template: '<project></project>'
+        })
+        .state('job', {
+            url: '/job/:id',
+            requireLogin: true,
+            roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+            template: '<job></job>'
+        })
+        .state('skill', {
+            url: '/skill/:id',
+            requireLogin: true,
+            roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+            template: '<skill></skill>'
+        })
+        .state('media', {
+            url: '/media/:id',
+            requireLogin: true,
+            roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+            template: '<media></media>'
         });
 }

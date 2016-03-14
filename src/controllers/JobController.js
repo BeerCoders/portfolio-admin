@@ -7,36 +7,34 @@
  * file that was distributed with this source code.
  */
 
-import {Article} from "./../entity/Article";
+import {Job} from "./../entity/Job";
 
-export class ArticleController {
+export class JobController {
 
     constructor($stateParams, factory, Flash) {
         this.Flash = Flash;
-        this.repository = factory.getRepository(Article, '/articles');
-        this.article = new Article();
+        this.repository = factory.getRepository(Job, '/jobs');
+        this.entity = new Job();
         this.params = $stateParams;
-        this.form = 'article';
+        this.form = 'job';
         this.errors = [];
-        this.options = {
-            language: 'en',
-            allowedContent: true,
-            entities: false
-        };
 
         if ($stateParams.id) {
-            this.repository.getById($stateParams.id).then((article) => {
-                this.article = article;
+            this.repository.getById($stateParams.id).then((data) => {
+                this.entity = data;
             });
         }
     }
 
     update() {
         let data = {
-            article: {
-                title: this.article.title,
-                intro: this.article.intro,
-                body: this.article.body
+            job: {
+                company: this.entity.company.id,
+                position: this.entity.position,
+                description: this.entity.description,
+                dateFrom: this.entity.dateFrom,
+                dateTo: this.entity.dateTo,
+                currentJob: this.entity.currentJob
             }
         };
 
@@ -70,4 +68,4 @@ export class ArticleController {
     }
 }
 
-ArticleController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];
+JobController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];

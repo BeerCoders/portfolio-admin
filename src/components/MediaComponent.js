@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-export class LogoutController {
+import {MediaController} from "./../controllers/MediaController";
 
-    constructor($location, AccessService) {
-        AccessService.setUser(null);
-        $location.path('/login');
-        $location.replace();
+export class MediaComponent {
+    constructor() {
+        this.template = require('./../views/media.html');
+        this.controller = MediaController;
     }
 }
-
-LogoutController.$inject = ['$location', 'AccessService'];

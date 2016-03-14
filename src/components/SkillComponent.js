@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-export class LogoutController {
+import {SkillController} from "./../controllers/SkillController";
 
-    constructor($location, AccessService) {
-        AccessService.setUser(null);
-        $location.path('/login');
-        $location.replace();
+export class SkillComponent {
+    constructor() {
+        this.template = require('./../views/skill.html');
+        this.controller = SkillController;
     }
 }
-
-LogoutController.$inject = ['$location', 'AccessService'];

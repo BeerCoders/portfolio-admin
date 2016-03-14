@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form name="mediaForm" ng-submit="$ctrl.update()" role="form">
+                <div class="form-group required" ng-class="{ 'has-error': mediaForm.name.$touched && mediaForm.name.$invalid }">
+                    <input type="text"
+                           ng-model="$ctrl.entity.name"
+                           id="name"
+                           name="name"
+                           class="form-control"
+                           placeholder="Name"
+                           required
+                           autofocus>
+                    <validator symfony-form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
+                </div>
+                <div class="form-group required" ng-class="{ 'has-error': mediaForm.url.$touched && mediaForm.url.$invalid }">
+                    <input type="url"
+                           ng-model="$ctrl.entity.url"
+                           id="url"
+                           name="url"
+                           class="form-control"
+                           placeholder="URL"
+                           required>
+                    <validator symfony-form="$ctrl.form" field="url" model="$ctrl.entity.url" errors="$ctrl.errors"></validator>
+                </div>
+                <div class="form-group required" ng-class="{ 'has-error': mediaForm.url.$touched && mediaForm.url.$invalid }">
+                    <select name="icon"
+                            id="icon"
+                            class="form-control"
+                            ng-model="$ctrl.entity.icon"
+                            required>
+                        <option ng-repeat="option in $ctrl.icons" value="{{option.name}}">{{option.name}}</option>
+                    </select>
+                    <validator symfony-form="$ctrl.form" field="icon" model="$ctrl.entity.icon" errors="$ctrl.errors"></validator>
+                </div>
+
+                <button
+                        ng-disabled="mediaForm.$invalid"
+                        class="btn btn-lg btn-primary"
+                        data-backdrop="static"
+                        data-keyboard="false"
+                        type="submit">
+                    Update
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

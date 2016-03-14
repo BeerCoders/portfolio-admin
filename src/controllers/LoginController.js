@@ -9,10 +9,10 @@
 
 export class LoginController {
 
-    constructor($state, Auth, Flash) {
+    constructor($location, Auth, Flash) {
         this.Auth = Auth;
         this.Flash = Flash;
-        this.$state = $state;
+        this.$location = $location;
 
         this.title = 'BeerCoders Team';
         this.subtitle = 'Software Development tips & tricks';
@@ -22,7 +22,8 @@ export class LoginController {
         this.Auth.login(this.email, this.password).then(() => {
             this.Auth.me().then(() => {
                 this.Flash.create("success", "Login success.", "success");
-                this.$state.go('admin', {}, {'reload': true});
+                this.$location.path('/');
+                this.$location.replace();
             });
         }, (response) => {
             if (response.data) {
@@ -34,4 +35,4 @@ export class LoginController {
     }
 }
 
-LoginController.$inject = ['$state', 'Auth', 'Flash'];
+LoginController.$inject = ['$location', 'Auth', 'Flash'];

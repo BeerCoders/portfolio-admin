@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-export class LogoutController {
+import {JobController} from "./../controllers/JobController";
 
-    constructor($location, AccessService) {
-        AccessService.setUser(null);
-        $location.path('/login');
-        $location.replace();
+export class JobComponent {
+    constructor() {
+        this.template = require('./../views/job.html');
+        this.controller = JobController;
     }
 }
-
-LogoutController.$inject = ['$location', 'AccessService'];

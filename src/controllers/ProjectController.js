@@ -7,36 +7,30 @@
  * file that was distributed with this source code.
  */
 
-import {Article} from "./../entity/Article";
+import {Project} from "./../entity/Project";
 
-export class ArticleController {
+export class ProjectController {
 
     constructor($stateParams, factory, Flash) {
         this.Flash = Flash;
-        this.repository = factory.getRepository(Article, '/articles');
-        this.article = new Article();
+        this.repository = factory.getRepository(Project, '/projects');
+        this.entity = new Project();
         this.params = $stateParams;
-        this.form = 'article';
+        this.form = 'project';
         this.errors = [];
-        this.options = {
-            language: 'en',
-            allowedContent: true,
-            entities: false
-        };
 
         if ($stateParams.id) {
-            this.repository.getById($stateParams.id).then((article) => {
-                this.article = article;
+            this.repository.getById($stateParams.id).then((data) => {
+                this.entity = data;
             });
         }
     }
 
     update() {
         let data = {
-            article: {
-                title: this.article.title,
-                intro: this.article.intro,
-                body: this.article.body
+            project: {
+                logo: this.entity.logo,
+                description: this.entity.description
             }
         };
 
@@ -70,4 +64,4 @@ export class ArticleController {
     }
 }
 
-ArticleController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];
+ProjectController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];

@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-export class LogoutController {
+import {ProjectController} from "./../controllers/ProjectController";
 
-    constructor($location, AccessService) {
-        AccessService.setUser(null);
-        $location.path('/login');
-        $location.replace();
+export class ProjectComponent {
+    constructor() {
+        this.template = require('./../views/project.html');
+        this.controller = ProjectController;
     }
 }
-
-LogoutController.$inject = ['$location', 'AccessService'];
