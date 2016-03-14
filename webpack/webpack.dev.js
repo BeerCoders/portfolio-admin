@@ -37,6 +37,7 @@ module.exports = {
             notify: false
         }),
         new webpack.ProvidePlugin({
+            moment: 'moment',
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
