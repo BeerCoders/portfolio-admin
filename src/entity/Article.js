@@ -16,6 +16,8 @@ export class Article {
         this.id = parameters.id;
         this.title = parameters.title;
         this.intro = parameters.intro;
+        this.body = parameters.body;
+        this.tags = parameters.tags || [];
         this.author = new User(parameters.author);
         this.category = new Category(parameters.category);
         this.created = parameters.created;
