@@ -15,6 +15,7 @@ import 'angular-ui-router';
 import 'angular-flash-alert';
 import 'angular-messages';
 import 'angular-resource';
+import 'angular-sanitize';
 import '../node_modules/angular-ckeditor/angular-ckeditor.min';
 
 import 'angular-repository';
@@ -46,6 +47,7 @@ import {JobComponent} from "./components/JobComponent";
 import {MediaComponent} from "./components/MediaComponent";
 import {ProjectComponent} from "./components/ProjectComponent";
 import {SkillComponent} from "./components/SkillComponent";
+import {ProfileComponent} from "./components/ProfileComponent";
 import {Auth} from "./services/Auth";
 
 const appName = 'app';
@@ -59,7 +61,8 @@ const requirements = [
     'ngFlash',
     'ngMessages',
     'ngResource',
-    'ckeditor'
+    'ckeditor',
+    'ngSanitize'
 ];
 
 angular.module(appName, requirements)
@@ -85,7 +88,8 @@ angular.module(appName, requirements)
     .component("job", new JobComponent())
     .component("media", new MediaComponent())
     .component("project", new ProjectComponent())
-    .component("skill", new SkillComponent());
+    .component("skill", new SkillComponent())
+    .component("profile", new ProfileComponent());
 
 angular.bootstrap(document, ["app"], {
     strictDi: true

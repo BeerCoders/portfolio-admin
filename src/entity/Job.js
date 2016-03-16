@@ -7,8 +7,6 @@
  * file that was distributed with this source code.
  */
 
-import 'moment';
-
 export class Job {
 
     constructor(parameters = {}) {
@@ -17,8 +15,8 @@ export class Job {
         this.description = parameters.description;
         this.position = parameters.position;
         this.currentJob = parameters.currentJob || parameters.current_job;
-        this.dateFrom = moment(parameters.dateFrom || parameters.date_from).format("DD/MM/YYYY");
-        this.dateTo = moment(parameters.dateTo || parameters.date_to).format("DD/MM/YYYY");
+        this.dateFrom = parameters.dateFrom || parameters.date_from;
+        this.dateTo = parameters.dateTo || parameters.date_to;
         this.created = parameters.created;
         this.updated = parameters.updated;
     }

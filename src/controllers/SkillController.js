@@ -26,6 +26,10 @@ export class SkillController {
         }
     }
 
+    getTimes(number) {
+        return new Array(number);
+    }
+
     update() {
         let data = {
             skill: {

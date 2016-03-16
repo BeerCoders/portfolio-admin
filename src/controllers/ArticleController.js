@@ -11,11 +11,12 @@ import {Article} from "./../entity/Article";
 
 export class ArticleController {
 
-    constructor($stateParams, factory, Flash) {
+    constructor($state, $stateParams, factory, Flash) {
         this.Flash = Flash;
         this.repository = factory.getRepository(Article, '/articles');
         this.article = new Article();
         this.params = $stateParams;
+        this.$state = $state;
         this.form = 'article';
         this.errors = [];
         this.options = {
@@ -54,8 +55,10 @@ export class ArticleController {
                 }
             });
         } else {
-            this.repository.create(data).then(() => {
+            this.repository.create(data).then((data) => {
+                console.log(data);
                 this.Flash.create("success", "Saved.", "success");
+                this.$state.go('article', {id: data.id}, {'reload': true});
             }, function (response) {
                 if (response.data) {
                     var errors = response.data.errors;
@@ -70,4 +73,4 @@ export class ArticleController {
     }
 }
 
-ArticleController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];
+ArticleController.$inject = ['$state', '$stateParams', 'RepositoryFactory', 'Flash'];

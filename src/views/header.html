@@ -9,36 +9,18 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <div id="small-beer" class="beer small">
-                    <div class="beaker">
-                        <div class="half-circle"></div>
-                        <div class="beer-foam">
-                            <div class="foam-1"></div>
-                            <div class="foam-2"></div>
-                            <div class="foam-3"></div>
-                            <div class="foam-4"></div>
-                            <div class="foam-5"></div>
-                        </div>
-                        <div class="liquid">
-                            <div class="bubble bubble1"></div>
-                            <div class="bubble bubble2"></div>
-                            <div class="bubble bubble3"></div>
-                            <div class="bubble bubble4"></div>
-                        </div>
-                    </div>
-                </div>
+                BeerCoders
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">
-                        <div class="circle">
-                            <gravatar email="$ctrl.user.email" size="80"></gravatar>
-                        </div>
+                        <gravatar email="$ctrl.user.email" size="20"></gravatar>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href ui-sref="profile({id: $ctrl.user.id})">Profile</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </li>

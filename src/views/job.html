@@ -1,78 +1,111 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <form name="jobForm" ng-submit="$ctrl.update()" role="form">
-                <div class="form-group required" ng-class="{ 'has-error': jobForm.company.$touched && jobForm.company.$invalid }">
-                    <input type="text"
-                           ng-model="$ctrl.entity.company"
-                           id="company"
-                           name="company"
-                           class="form-control"
-                           placeholder="Company"
-                           required
-                           autofocus>
-                    <validator symfony-form="$ctrl.form" field="company" model="$ctrl.entity.company" errors="$ctrl.errors"></validator>
+        <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" ng-class="{active: $ctrl.params.id}" ng-show="$ctrl.params.id">
+                    <a href="#presentation" aria-controls="presentation" role="tab" data-toggle="tab">
+                        View
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{active: $ctrl.params.id == ''}">
+                    <a href="#editor" aria-controls="editor" role="tab" data-toggle="tab">
+                        Editor
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id}" id="presentation">
+                    <div class="page-header">
+                        <h1>{{ $ctrl.entity.company }}
+                            <small>
+                                {{ $ctrl.entity.position }}
+                                <span class="duration">
+                                    <i class="fa fa-calendar color"></i>
+                                    {{ $ctrl.entity.dateFrom|date:'yyyy/MM/dd' }} - {{($ctrl.entity.dateTo ? ($ctrl.entity.dateTo|date:'yyyy/MM/dd') : 'NOW')}}
+                                </span>
+                            </small>
+                        </h1>
+                    </div>
+
+                    <p>{{ $ctrl.entity.description }}</p>
                 </div>
-                <div class="form-group required" ng-class="{ 'has-error': jobForm.position.$touched && jobForm.position.$invalid }">
-                    <input type="text"
-                           ng-model="$ctrl.entity.position"
-                           id="position"
-                           name="position"
-                           class="form-control"
-                           placeholder="position"
-                           required>
-                    <validator symfony-form="$ctrl.form" field="position" model="$ctrl.entity.position" errors="$ctrl.errors"></validator>
-                </div>
-                <div class="form-group required" ng-class="{ 'has-error': jobForm.description.$touched && jobForm.description.$invalid }">
-                    <label for="description" class="sr-only">Description</label>
+
+                <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id == ''}" id="editor">
+                    <form name="jobForm" ng-submit="$ctrl.update()" role="form">
+                        <div class="form-group required" ng-class="{ 'has-error': jobForm.company.$touched && jobForm.company.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.company"
+                                   id="company"
+                                   name="company"
+                                   class="form-control"
+                                   placeholder="Company"
+                                   required
+                                   autofocus>
+                            <validator symfony-form="$ctrl.form" field="company" model="$ctrl.entity.company" errors="$ctrl.errors"></validator>
+                        </div>
+                        <div class="form-group required" ng-class="{ 'has-error': jobForm.position.$touched && jobForm.position.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.position"
+                                   id="position"
+                                   name="position"
+                                   class="form-control"
+                                   placeholder="position"
+                                   required>
+                            <validator symfony-form="$ctrl.form" field="position" model="$ctrl.entity.position" errors="$ctrl.errors"></validator>
+                        </div>
+                        <div class="form-group required" ng-class="{ 'has-error': jobForm.description.$touched && jobForm.description.$invalid }">
+                            <label for="description" class="sr-only">Description</label>
                     <textarea ng-model="$ctrl.article.description"
                               id="description"
                               name="description"
                               class="form-control"
                               required>
                     </textarea>
-                    <validator symfony-form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
-                </div>
-                <div class="form-group required" ng-class="{ 'has-error': jobForm.dateFrom.$touched && jobForm.dateFrom.$invalid }">
-                    <input type="text"
-                           ng-model="$ctrl.entity.dateFrom"
-                           id="dateFrom"
-                           name="dateFrom"
-                           class="form-control"
-                           placeholder="From"
-                           required>
-                    <validator symfony-form="$ctrl.form" field="dateFrom" model="$ctrl.entity.dateFrom" errors="$ctrl.errors"></validator>
-                </div>
-                <div class="form-group required" ng-class="{ 'has-error': jobForm.dateTo.$touched && jobForm.dateTo.$invalid }">
-                    <input type="text"
-                           ng-model="$ctrl.entity.dateTo"
-                           id="dateTo"
-                           name="dateTo"
-                           class="form-control"
-                           placeholder="To"
-                           required>
-                    <validator symfony-form="$ctrl.form" field="dateTo" model="$ctrl.entity.dateTo" errors="$ctrl.errors"></validator>
-                </div>
-                <div class="form-group required" ng-class="{ 'has-error': jobForm.currentJob.$touched && jobForm.currentJob.$invalid }">
-                    <input type="checkbox"
-                           ng-model="$ctrl.entity.currentJob"
-                           id="currentJob"
-                           name="currentJob"
-                           class="form-control"
-                           placeholder="To"
-                           required>
-                    <validator symfony-form="$ctrl.form" field="currentJob" model="$ctrl.entity.currentJob" errors="$ctrl.errors"></validator>
-                </div>
+                            <validator symfony-form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
+                        </div>
+                        <div class="form-group required" ng-class="{ 'has-error': jobForm.dateFrom.$touched && jobForm.dateFrom.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.dateFrom"
+                                   id="dateFrom"
+                                   name="dateFrom"
+                                   class="form-control"
+                                   placeholder="From"
+                                   required>
+                            <validator symfony-form="$ctrl.form" field="dateFrom" model="$ctrl.entity.dateFrom" errors="$ctrl.errors"></validator>
+                        </div>
+                        <div class="form-group required" ng-class="{ 'has-error': jobForm.dateTo.$touched && jobForm.dateTo.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.dateTo"
+                                   id="dateTo"
+                                   name="dateTo"
+                                   class="form-control"
+                                   placeholder="To"
+                                   required>
+                            <validator symfony-form="$ctrl.form" field="dateTo" model="$ctrl.entity.dateTo" errors="$ctrl.errors"></validator>
+                        </div>
+                        <div class="form-group required" ng-class="{ 'has-error': jobForm.currentJob.$touched && jobForm.currentJob.$invalid }">
+                            <input type="checkbox"
+                                   ng-model="$ctrl.entity.currentJob"
+                                   id="currentJob"
+                                   name="currentJob"
+                                   class="form-control"
+                                   placeholder="To"
+                                   required>
+                            <validator symfony-form="$ctrl.form" field="currentJob" model="$ctrl.entity.currentJob" errors="$ctrl.errors"></validator>
+                        </div>
 
-                <button
-                        ng-disabled="jobForm.$invalid"
-                        class="btn btn-lg btn-primary"
-                        data-backdrop="static"
-                        data-keyboard="false"
-                        type="submit">
-                    Update
-                </button>
-            </form>
+                        <button
+                                ng-disabled="jobForm.$invalid"
+                                class="btn btn-lg btn-primary"
+                                data-backdrop="static"
+                                data-keyboard="false"
+                                type="submit">
+                            Update
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

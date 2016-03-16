@@ -36,6 +36,12 @@ export function config($stateProvider, $locationProvider, $urlRouterProvider) {
             url: '/reset/:token',
             template: '<reset></reset>'
         })
+        .state('profile', {
+            url: '/profile/:id',
+            requireLogin: true,
+            roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+            template: '<profile></profile>'
+        })
         .state('article', {
             url: '/article/:id',
             requireLogin: true,

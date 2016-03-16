@@ -1,35 +1,29 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
 
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation"><a href ui-sref="job">New</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <table class="table table-hover table-condensed">
-                    <thead>
-                    <tr>
-                        <td>Company</td>
-                        <td>Position</td>
-                        <td>Period</td>
-                        <td></td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="entity in $ctrl.items">
-                        <td>{{ entity.company }}</td>
-                        <td>{{ entity.position }}</td>
-                        <td>{{ entity.dateFrom|date }} - {{ entity.dateTo|date }}</td>
-                        <td>
-                            <a href ui-sref="job({id: entity.id})">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="tab-content">
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <td>Company</td>
+                    <td>Position</td>
+                    <td>Period</td>
+                    <td><a href ui-sref="job"><i class="fa fa-plus"></i></a></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="entity in $ctrl.items">
+                    <td>{{ entity.company }}</td>
+                    <td>{{ entity.position }}</td>
+                    <td>{{ entity.dateFrom|date }} - {{ entity.dateTo|date }}</td>
+                    <td>
+                        <a href ui-sref="job({id: entity.id})">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

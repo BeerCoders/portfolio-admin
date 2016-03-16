@@ -1,40 +1,68 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <form name="skillForm" ng-submit="$ctrl.update()" role="form">
-                <div class="form-group required" ng-class="{ 'has-error': skillForm.name.$touched && skillForm.name.$invalid }">
-                    <input type="text"
-                           ng-model="$ctrl.entity.name"
-                           id="name"
-                           name="name"
-                           class="form-control"
-                           placeholder="Name"
-                           required
-                           autofocus>
-                    <validator symfony-form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
-                </div>
-                <div class="form-group required" ng-class="{ 'has-error': skillForm.value.$touched && skillForm.value.$invalid }">
-                    <input type="number"
-                           ng-model="$ctrl.entity.value"
-                           id="value"
-                           name="value"
-                           class="form-control"
-                           placeholder="Value"
-                           min="0"
-                           max="5"
-                           required>
-                    <validator symfony-form="$ctrl.form" field="value" model="$ctrl.entity.value" errors="$ctrl.errors"></validator>
+        <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" ng-class="{active: $ctrl.params.id}" ng-show="$ctrl.params.id">
+                    <a href="#presentation" aria-controls="presentation" role="tab" data-toggle="tab">
+                        View
+                    </a>
+                </li>
+                <li role="presentation" ng-class="{active: $ctrl.params.id == ''}">
+                    <a href="#editor" aria-controls="editor" role="tab" data-toggle="tab">
+                        Editor
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id}" id="presentation">
+                    <div class="page-header">
+                        <h1>
+                            {{ $ctrl.entity.name }}
+                            <small>
+                                <i class="fa fa-circle" ng-repeat="i in $ctrl.getTimes($ctrl.entity.value) track by $index"></i>
+                            </small>
+                        </h1>
+                    </div>
                 </div>
 
-                <button
-                        ng-disabled="skillForm.$invalid"
-                        class="btn btn-lg btn-primary"
-                        data-backdrop="static"
-                        data-keyboard="false"
-                        type="submit">
-                    Update
-                </button>
-            </form>
+                <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id == ''}" id="editor">
+                    <form name="skillForm" ng-submit="$ctrl.update()" role="form">
+                        <div class="form-group required" ng-class="{ 'has-error': skillForm.name.$touched && skillForm.name.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.name"
+                                   id="name"
+                                   name="name"
+                                   class="form-control"
+                                   placeholder="Name"
+                                   required
+                                   autofocus>
+                            <validator symfony-form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
+                        </div>
+                        <div class="form-group required" ng-class="{ 'has-error': skillForm.value.$touched && skillForm.value.$invalid }">
+                            <input type="number"
+                                   ng-model="$ctrl.entity.value"
+                                   id="value"
+                                   name="value"
+                                   class="form-control"
+                                   placeholder="Value"
+                                   min="0"
+                                   max="5"
+                                   required>
+                            <validator symfony-form="$ctrl.form" field="value" model="$ctrl.entity.value" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <button
+                                ng-disabled="skillForm.$invalid"
+                                class="btn btn-lg btn-primary"
+                                data-backdrop="static"
+                                data-keyboard="false"
+                                type="submit">
+                            Update
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

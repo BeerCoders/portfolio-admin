@@ -7,6 +7,7 @@
  * file that was distributed with this source code.
  */
 
+import 'moment';
 import {Job} from "./../entity/Job";
 
 export class JobController {
@@ -22,6 +23,8 @@ export class JobController {
         if ($stateParams.id) {
             this.repository.getById($stateParams.id).then((data) => {
                 this.entity = data;
+                this.entity.dateFrom = moment(this.entity.dateFrom).format("DD/MM/YYYY");
+                this.entity.dateTo = moment(this.entity.dateTo).format("DD/MM/YYYY");
             });
         }
     }
