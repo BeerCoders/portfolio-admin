@@ -23,11 +23,10 @@ export function config(AccessServiceProvider) {
     AccessServiceProvider.config(myConfig);
 }
 
-run.$inject = ['$rootScope', '$state', 'AccessService'];
+run.$inject = ['$rootScope', '$state'];
 
-export function run($rootScope, $state, AccessService) {
-    $rootScope.$on('vsymfonyacl:error', function (event, user) {
-        AccessService.setUser(null);
+export function run($rootScope, $state) {
+    $rootScope.$on('vsymfonyacl:error', function () {
         $state.go('login', {}, {reload: true});
     });
 }
