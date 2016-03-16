@@ -22,7 +22,7 @@
     "angular-symfony-form": "^2.0.4",
     "angular-ui-router": "^0.2.18",
     "angular-vgravatar": "^0.1.2",
-    "angular-voauth2": "^0.1.12",
+    "angular-voauth2": "^0.1.14",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "3.3.6",
     "font-awesome": "4.5.0",

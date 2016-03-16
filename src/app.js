@@ -30,6 +30,7 @@ import {config as repositoryConfig} from "./configs/repository";
 import {config as oauthConfig} from "./configs/oauth";
 import {config as aclConfig} from "./configs/acl";
 import {run as aclRun} from "./configs/acl";
+import {run as oauthRun} from "./configs/oauth";
 import {LoginComponent} from "./components/LoginComponent";
 import {LogoutComponent} from "./components/LogoutComponent";
 import {AdminComponent} from "./components/AdminComponent";
@@ -79,6 +80,7 @@ angular.module(appName, requirements)
     .config(routesConfig)
     .config(repositoryConfig)
     .run(aclRun)
+    .run(oauthRun)
     .component("articles", new ArticlesComponent())
     .component("projects", new ProjectsComponent())
     .component("jobs", new JobsComponent())
