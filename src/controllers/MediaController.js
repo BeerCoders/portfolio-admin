@@ -41,7 +41,7 @@ export class MediaController {
             social_media: {
                 name: this.entity.name,
                 url: this.entity.url,
-                icon: this.entity.icon.name || this.entity.icon
+                icon: this.entity.icon.id || this.entity.icon
             }
         };
 

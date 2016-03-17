@@ -52,7 +52,7 @@
                                     class="form-control"
                                     ng-model="$ctrl.entity.icon"
                                     required>
-                                <option ng-repeat="option in $ctrl.icons" value="{{option.name}}">{{option.name}}</option>
+                                <option ng-repeat="option in $ctrl.icons" value="{{option.id}}">{{option.name}}</option>
                             </select>
                             <validator form="$ctrl.form" field="icon" model="$ctrl.entity.icon" errors="$ctrl.errors"></validator>
                         </div>
