@@ -37,7 +37,7 @@
                                    placeholder="Name"
                                    required
                                    autofocus>
-                            <validator symfony-form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': skillForm.value.$touched && skillForm.value.$invalid }">
                             <input type="number"
@@ -49,7 +49,7 @@
                                    min="0"
                                    max="5"
                                    required>
-                            <validator symfony-form="$ctrl.form" field="value" model="$ctrl.entity.value" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="value" model="$ctrl.entity.value" errors="$ctrl.errors"></validator>
                         </div>
 
                         <button

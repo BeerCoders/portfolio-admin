@@ -15,7 +15,7 @@
                            placeholder="Email address"
                            required
                            autofocus>
-                    <validator symfony-form="$ctrl.form" field="email" model="$ctrl.email" errors="$ctrl.errors"></validator>
+                    <validator form="$ctrl.form" field="email" model="$ctrl.email" errors="$ctrl.errors"></validator>
                 </div>
 
                 <div class="form-group required"
@@ -28,7 +28,7 @@
                            class="form-control"
                            placeholder="Password"
                            required>
-                    <validator symfony-form="$ctrl.form" field="password" model="$ctrl.password" errors="$ctrl.errors"></validator>
+                    <validator form="$ctrl.form" field="password" model="$ctrl.password" errors="$ctrl.errors"></validator>
                     <p class="text-right"><a href ui-sref="forgotPassword">Forgot password?</a></p>
                 </div>
 

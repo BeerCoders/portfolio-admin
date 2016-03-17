@@ -42,7 +42,7 @@
                                    placeholder="Company"
                                    required
                                    autofocus>
-                            <validator symfony-form="$ctrl.form" field="company" model="$ctrl.entity.company" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="company" model="$ctrl.entity.company" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': jobForm.position.$touched && jobForm.position.$invalid }">
                             <input type="text"
@@ -52,17 +52,17 @@
                                    class="form-control"
                                    placeholder="position"
                                    required>
-                            <validator symfony-form="$ctrl.form" field="position" model="$ctrl.entity.position" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="position" model="$ctrl.entity.position" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': jobForm.description.$touched && jobForm.description.$invalid }">
                             <label for="description" class="sr-only">Description</label>
-                    <textarea ng-model="$ctrl.article.description"
-                              id="description"
-                              name="description"
-                              class="form-control"
-                              required>
-                    </textarea>
-                            <validator symfony-form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
+                            <textarea ng-model="$ctrl.entity.description"
+                                      id="description"
+                                      name="description"
+                                      class="form-control"
+                                      required>
+                            </textarea>
+                            <validator form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': jobForm.dateFrom.$touched && jobForm.dateFrom.$invalid }">
                             <input type="text"
@@ -72,7 +72,7 @@
                                    class="form-control"
                                    placeholder="From"
                                    required>
-                            <validator symfony-form="$ctrl.form" field="dateFrom" model="$ctrl.entity.dateFrom" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="dateFrom" model="$ctrl.entity.dateFrom" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': jobForm.dateTo.$touched && jobForm.dateTo.$invalid }">
                             <input type="text"
@@ -82,7 +82,7 @@
                                    class="form-control"
                                    placeholder="To"
                                    required>
-                            <validator symfony-form="$ctrl.form" field="dateTo" model="$ctrl.entity.dateTo" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="dateTo" model="$ctrl.entity.dateTo" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': jobForm.currentJob.$touched && jobForm.currentJob.$invalid }">
                             <input type="checkbox"
@@ -92,7 +92,7 @@
                                    class="form-control"
                                    placeholder="To"
                                    required>
-                            <validator symfony-form="$ctrl.form" field="currentJob" model="$ctrl.entity.currentJob" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="currentJob" model="$ctrl.entity.currentJob" errors="$ctrl.errors"></validator>
                         </div>
 
                         <button

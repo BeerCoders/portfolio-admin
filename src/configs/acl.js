@@ -23,10 +23,11 @@ export function config(AccessServiceProvider) {
     AccessServiceProvider.config(myConfig);
 }
 
-run.$inject = ['$rootScope', '$state'];
+run.$inject = ['$rootScope', '$state', 'Flash'];
 
-export function run($rootScope, $state) {
+export function run($rootScope, $state, Flash) {
     $rootScope.$on('vsymfonyacl:error', function () {
+        Flash.create("danger", 'You are not allowed to access this resource');
         $state.go('login', {}, {reload: true});
     });
 }

@@ -21,14 +21,14 @@ export class LoginController {
     login() {
         this.Auth.login(this.email, this.password).then(() => {
             this.Auth.me().then(() => {
-                this.Flash.create("success", "Login success.", "success");
+                this.Flash.create("success", "Login success.");
                 this.$location.path('/');
                 this.$location.replace();
             });
         }, (response) => {
             if (response.data) {
                 if (response.data.error_description) {
-                    this.Flash.create("danger", response.data.error_description, "error");
+                    this.Flash.create("danger", response.data.error_description);
                 }
             }
         });

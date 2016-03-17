@@ -20,16 +20,16 @@ export class ForgotPasswordController {
 
     forgotPassword() {
         this.Auth.forgotPassword(this.username).then((response) => {
-            this.Flash.create("success", "Check your Email to reset your password.", "success");
+            this.Flash.create("success", "Check your Email to reset your password.");
             this.$state.go('login', {}, {'reload': true});
         }, (response) => {
             if (response.data) {
                 var errors = response.data.errors;
 
                 if (errors.invalid_username) {
-                    this.Flash.create("danger", errors.invalid_username, "error");
+                    this.Flash.create("danger", errors.invalid_username);
                 } else if (errors.password_already_requested) {
-                    this.Flash.create("danger", errors.password_already_requested, "error");
+                    this.Flash.create("danger", errors.password_already_requested);
                 }
             }
         });

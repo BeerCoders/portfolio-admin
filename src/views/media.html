@@ -34,7 +34,7 @@
                                    placeholder="Name"
                                    required
                                    autofocus>
-                            <validator symfony-form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': mediaForm.url.$touched && mediaForm.url.$invalid }">
                             <input type="url"
@@ -44,7 +44,7 @@
                                    class="form-control"
                                    placeholder="URL"
                                    required>
-                            <validator symfony-form="$ctrl.form" field="url" model="$ctrl.entity.url" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="url" model="$ctrl.entity.url" errors="$ctrl.errors"></validator>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error': mediaForm.url.$touched && mediaForm.url.$invalid }">
                             <select name="icon"
@@ -54,7 +54,7 @@
                                     required>
                                 <option ng-repeat="option in $ctrl.icons" value="{{option.name}}">{{option.name}}</option>
                             </select>
-                            <validator symfony-form="$ctrl.form" field="icon" model="$ctrl.entity.icon" errors="$ctrl.errors"></validator>
+                            <validator form="$ctrl.form" field="icon" model="$ctrl.entity.icon" errors="$ctrl.errors"></validator>
                         </div>
 
                         <button

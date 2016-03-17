@@ -26,7 +26,7 @@ export class ResetController {
         var token = this.$stateParams.token;
 
         this.Auth.verify(token, this.plainPassword_first, this.plainPassword_second).then(() => {
-            this.Flash.create("success", "You password has been reset. You may now login.", "success");
+            this.Flash.create("success", "You password has been reset. You may now login.");
             this.$state.go('login', {}, {'reload': true});
         }, function (response) {
             if (response.data) {
@@ -35,7 +35,7 @@ export class ResetController {
 
                 this.errors = errors;
 
-                this.Flash.create("danger", message, "error");
+                this.Flash.create("danger", message);
             }
         });
     }

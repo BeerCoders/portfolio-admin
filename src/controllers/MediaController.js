@@ -47,7 +47,7 @@ export class MediaController {
 
         if (this.params.id) {
             this.repository.update(this.params.id, data).then(() => {
-                this.Flash.create("success", "Saved.", "success");
+                this.Flash.create("success", "Saved.");
             }, function (response) {
                 if (response.data) {
                     var errors = response.data.errors;
@@ -55,12 +55,12 @@ export class MediaController {
 
                     this.errors = errors;
 
-                    this.Flash.create("danger", message, "error");
+                    this.Flash.create("danger", message);
                 }
             });
         } else {
             this.repository.create(data).then(() => {
-                this.Flash.create("success", "Saved.", "success");
+                this.Flash.create("success", "Saved.");
             }, function (response) {
                 if (response.data) {
                     var errors = response.data.errors;
@@ -68,7 +68,7 @@ export class MediaController {
 
                     this.errors = errors;
 
-                    this.Flash.create("danger", message, "error");
+                    this.Flash.create("danger", message);
                 }
             });
         }

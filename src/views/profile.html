@@ -73,17 +73,75 @@
                 <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id == ''}" id="editor">
                     <form name="userForm" ng-submit="$ctrl.update()" role="form">
 
-                    <div class="form-group required" ng-class="{ 'has-error': userForm.name.$touched && userForm.name.$invalid }">
-                        <input type="text"
-                               ng-model="$ctrl.entity.name"
-                               id="name"
-                               name="name"
-                               class="form-control"
-                               placeholder="Name"
-                               required
-                               autofocus>
-                        <validator symfony-form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
-                    </div>
+                        <div class="form-group required" ng-class="{ 'has-error': userForm.name.$touched && userForm.name.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.name"
+                                   id="name"
+                                   name="name"
+                                   class="form-control"
+                                   placeholder="Name"
+                                   required
+                                   autofocus>
+                            <validator form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': userForm.surname.$touched && userForm.surname.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.surname"
+                                   id="surname"
+                                   name="surname"
+                                   class="form-control"
+                                   placeholder="Surname"
+                                   required
+                                   autofocus>
+                            <validator form="$ctrl.form" field="surname" model="$ctrl.entity.surname" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': userForm.title.$touched && userForm.title.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.title"
+                                   id="title"
+                                   name="title"
+                                   class="form-control"
+                                   placeholder="Title"
+                                   required
+                                   autofocus>
+                            <validator form="$ctrl.form" field="title" model="$ctrl.entity.title" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': userForm.location.$touched && userForm.location.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.location"
+                                   id="location"
+                                   name="location"
+                                   class="form-control"
+                                   placeholder="Location"
+                                   required
+                                   autofocus>
+                            <validator form="$ctrl.form" field="location" model="$ctrl.entity.location" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': userForm.birth.$touched && userForm.birth.$invalid }">
+                            <input type="text"
+                                   ng-model="$ctrl.entity.birth"
+                                   id="birth"
+                                   name="birth"
+                                   class="form-control"
+                                   placeholder="Birth"
+                                   required>
+                            <validator form="$ctrl.form" field="birth" model="$ctrl.entity.birth" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': userForm.description.$touched && userForm.description.$invalid }">
+                            <label for="description" class="sr-only">Description</label>
+                            <textarea ng-model="$ctrl.entity.description"
+                                      id="description"
+                                      name="description"
+                                      class="form-control"
+                                      required>
+                            </textarea>
+                            <validator form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
+                        </div>
 
                     <button
                             ng-disabled="userForm.$invalid"

@@ -7,6 +7,7 @@
  * file that was distributed with this source code.
  */
 
+import 'moment';
 import {User} from "./../entity/User";
 
 export class ProfileController {
@@ -22,6 +23,7 @@ export class ProfileController {
         if ($stateParams.id) {
             this.repository.getById($stateParams.id).then((user) => {
                 this.entity = user;
+                this.entity.birth = moment(this.entity.birth).format("DD/MM/YYYY");
             });
         }
     }
@@ -31,22 +33,25 @@ export class ProfileController {
             user: {
                 name: this.entity.name,
                 surname: this.entity.surname,
+                title: this.entity.title,
+                location: this.entity.location,
+                description: this.entity.description,
                 birth: this.entity.birth
             }
         };
 
         if (this.params.id) {
-            this.repository.update(this.params.id, data).then((data) => {
-                this.Flash.create("success", "Saved.", "success");
-                this.$state.go('profile', {id: data.id}, {'reload': true});
-            }, function (response) {
+            this.repository.update(this.params.id, data).then((response) => {
+                this.Flash.create("success", "Saved.");
+                this.$state.go('profile', {id: response.id}, {'reload': true});
+            }, (response) => {
                 if (response.data) {
                     var errors = response.data.errors;
                     var message = response.data.message;
 
                     this.errors = errors;
 
-                    this.Flash.create("danger", message, "error");
+                    this.Flash.create("danger", message);
                 }
             });
         }

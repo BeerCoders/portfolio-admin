@@ -21,11 +21,11 @@ export function config(OAuthProvider, Settings) {
     OAuthProvider.configure(myConfig);
 }
 
-run.$inject = ['$rootScope', '$window', 'OAuthToken'];
+run.$inject = ['$rootScope', '$state', 'AccessService'];
 
-export function run($rootScope, $window, OAuthToken) {
+export function run($rootScope, $state, AccessService) {
     $rootScope.$on('voauth:error', function () {
-        OAuthToken.removeToken();
-        return $window.location.href = '/login';
+        AccessService.setUser(null);
+        $state.go('login', {}, {reload: true});
     });
 }

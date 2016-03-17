@@ -43,7 +43,7 @@ export class ArticleController {
 
         if (this.params.id) {
             this.repository.update(this.params.id, data).then(() => {
-                this.Flash.create("success", "Saved.", "success");
+                this.Flash.create("success", "Saved.");
             }, function (response) {
                 if (response.data) {
                     var errors = response.data.errors;
@@ -51,13 +51,13 @@ export class ArticleController {
 
                     this.errors = errors;
 
-                    this.Flash.create("danger", message, "error");
+                    this.Flash.create("danger", message);
                 }
             });
         } else {
             this.repository.create(data).then((data) => {
                 console.log(data);
-                this.Flash.create("success", "Saved.", "success");
+                this.Flash.create("success", "Saved.");
                 this.$state.go('article', {id: data.id}, {'reload': true});
             }, function (response) {
                 if (response.data) {
@@ -66,7 +66,7 @@ export class ArticleController {
 
                     this.errors = errors;
 
-                    this.Flash.create("danger", message, "error");
+                    this.Flash.create("danger", message);
                 }
             });
         }

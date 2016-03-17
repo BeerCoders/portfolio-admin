@@ -16,6 +16,7 @@ export class User {
         this.surname = parameters.surname;
         this.title = parameters.title;
         this.location = parameters.location;
+        this.description = parameters.description;
         this.enabled = parameters.enabled;
         this.jobs = parameters.jobs;
         this.skills = parameters.skills;
