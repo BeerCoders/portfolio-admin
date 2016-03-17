@@ -32,7 +32,7 @@ export class JobController {
     update() {
         let data = {
             job: {
-                company: this.entity.company.id,
+                company: this.entity.company,
                 position: this.entity.position,
                 description: this.entity.description,
                 dateFrom: this.entity.dateFrom,
