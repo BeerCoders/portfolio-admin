@@ -12,6 +12,7 @@ export class Project {
     constructor(parameters = {}) {
         this.id = parameters.id;
         this.logo = parameters.logo;
+        this.flayer = parameters.flayer;
         this.description = parameters.description;
         this.created = parameters.created;
         this.updated = parameters.updated;
