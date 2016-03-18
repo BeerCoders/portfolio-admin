@@ -14,7 +14,7 @@ export class Job {
         this.company = parameters.company;
         this.description = parameters.description;
         this.position = parameters.position;
-        this.currentJob = parameters.currentJob || parameters.current_job;
+        this.currentJob = parameters.currentJob || parameters.current_job || false;
         this.dateFrom = parameters.dateFrom || parameters.date_from;
         this.dateTo = parameters.dateTo || parameters.date_to;
         this.created = parameters.created;
