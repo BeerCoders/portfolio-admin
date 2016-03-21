@@ -66,6 +66,12 @@ export function config($stateProvider, $locationProvider, $urlRouterProvider) {
             roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
             template: '<skill></skill>'
         })
+        .state('tech', {
+            url: '/tech/:id',
+            requireLogin: true,
+            roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+            template: '<tech></tech>'
+        })
         .state('media', {
             url: '/media/:id',
             requireLogin: true,

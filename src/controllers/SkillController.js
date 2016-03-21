@@ -8,6 +8,7 @@
  */
 
 import {Skill} from "./../entity/Skill";
+import {Tech} from "./../entity/Tech";
 
 export class SkillController {
 
@@ -24,6 +25,15 @@ export class SkillController {
                 this.entity = data;
             });
         }
+
+        this.techs = [];
+        let iconsRepo = factory.getRepository(Tech, '/techs');
+        iconsRepo.getAll({
+            page: 1,
+            limit: 9999
+        }).then((response) => {
+            this.techs = response;
+        });
     }
 
     getTimes(number) {
@@ -33,8 +43,8 @@ export class SkillController {
     update() {
         let data = {
             skill: {
-                name: this.entity.name,
-                value: this.entity.value
+                value: this.entity.value,
+                tech: this.entity.tech.id || this.entity.tech
             }
         };
 

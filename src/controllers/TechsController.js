@@ -8,14 +8,13 @@
  */
 
 import {Tech} from "./../entity/Tech";
+import {ListController} from "./abtract/ListController";
 
-export class Skill {
+export class TechsController extends ListController {
 
-    constructor(parameters = {}) {
-        this.id = parameters.id;
-        this.value = parameters.value;
-        this.tech = new Tech(parameters.tech);
-        this.created = parameters.created;
-        this.updated = parameters.updated;
+    constructor(factory) {
+        super(factory, Tech, '/techs');
     }
 }
+
+TechsController.$inject = ['RepositoryFactory'];

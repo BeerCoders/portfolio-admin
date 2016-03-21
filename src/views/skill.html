@@ -18,7 +18,7 @@
                 <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id}" id="presentation">
                     <div class="page-header">
                         <h1>
-                            {{ $ctrl.entity.name }}
+                            {{ $ctrl.entity.tech.name }}
                             <small>
                                 <i class="fa fa-circle" ng-repeat="i in $ctrl.getTimes($ctrl.entity.value) track by $index"></i>
                             </small>
@@ -28,17 +28,6 @@
 
                 <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id == ''}" id="editor">
                     <form name="skillForm" ng-submit="$ctrl.update()" role="form">
-                        <div class="form-group required" ng-class="{ 'has-error': skillForm.name.$touched && skillForm.name.$invalid }">
-                            <input type="text"
-                                   ng-model="$ctrl.entity.name"
-                                   id="name"
-                                   name="name"
-                                   class="form-control"
-                                   placeholder="Name"
-                                   required
-                                   autofocus>
-                            <validator form="$ctrl.form" field="name" model="$ctrl.entity.name" errors="$ctrl.errors"></validator>
-                        </div>
                         <div class="form-group required" ng-class="{ 'has-error': skillForm.value.$touched && skillForm.value.$invalid }">
                             <input type="number"
                                    ng-model="$ctrl.entity.value"
@@ -50,6 +39,18 @@
                                    max="5"
                                    required>
                             <validator form="$ctrl.form" field="value" model="$ctrl.entity.value" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': skillForm.tech.$touched && skillForm.tech.$invalid }">
+                            <label for="tech" class="sr-only">Tech</label>
+                            <select name="tech"
+                                    id="tech"
+                                    class="form-control"
+                                    ng-model="$ctrl.entity.tech"
+                                    required>
+                                <option ng-repeat="option in $ctrl.techs" value="{{option.id}}">{{option.name}}</option>
+                            </select>
+                            <validator form="$ctrl.form" field="tech" model="$ctrl.entity.tech" errors="$ctrl.errors"></validator>
                         </div>
 
                         <button

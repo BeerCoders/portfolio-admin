@@ -43,11 +43,13 @@ import {ProjectsComponent} from "./components/ProjectsComponent";
 import {JobsComponent} from "./components/JobsComponent";
 import {MediasComponent} from "./components/MediasComponent";
 import {SkillsComponent} from "./components/SkillsComponent";
+import {TechsComponent} from "./components/TechsComponent";
 import {ArticleComponent} from "./components/ArticleComponent";
 import {JobComponent} from "./components/JobComponent";
 import {MediaComponent} from "./components/MediaComponent";
 import {ProjectComponent} from "./components/ProjectComponent";
 import {SkillComponent} from "./components/SkillComponent";
+import {TechComponent} from "./components/TechComponent";
 import {ProfileComponent} from "./components/ProfileComponent";
 import {Auth} from "./services/Auth";
 
@@ -86,11 +88,13 @@ angular.module(appName, requirements)
     .component("jobs", new JobsComponent())
     .component("medias", new MediasComponent())
     .component("skills", new SkillsComponent())
+    .component("techs", new TechsComponent())
     .component("article", new ArticleComponent())
     .component("job", new JobComponent())
     .component("media", new MediaComponent())
     .component("project", new ProjectComponent())
     .component("skill", new SkillComponent())
+    .component("tech", new TechComponent())
     .component("profile", new ProfileComponent());
 
 angular.bootstrap(document, ["app"], {

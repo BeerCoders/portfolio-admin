@@ -5,14 +5,14 @@
                 <thead>
                 <tr>
                     <td>Name</td>
-                    <td>Value</td>
-                    <td><a href ui-sref="skill"><i class="fa fa-plus"></i></a></td>
+                    <td>Logo</td>
+                    <td><a href ui-sref="tech"><i class="fa fa-plus"></i></a></td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="entity in $ctrl.items">
-                    <td>{{ entity.tech.name }}</td>
-                    <td>{{ entity.value }}</td>
+                    <td>{{ entity.name }}</td>
+                    <td><img ng-src="{{ entity.logo }}"/></td>
                     <td>
                         <a href ui-sref="skill({id: entity.id})">
                             <i class="fa fa-pencil-square-o"></i>

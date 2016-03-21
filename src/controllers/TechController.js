@@ -7,17 +7,16 @@
  * file that was distributed with this source code.
  */
 
-import {Project} from "./../entity/Project";
 import {Tech} from "./../entity/Tech";
 
-export class ProjectController {
+export class TechController {
 
     constructor($stateParams, factory, Flash) {
         this.Flash = Flash;
-        this.repository = factory.getRepository(Project, '/projects');
-        this.entity = new Project();
+        this.repository = factory.getRepository(Tech, '/techs');
+        this.entity = new Tech();
         this.params = $stateParams;
-        this.form = 'project';
+        this.form = 'tech';
         this.errors = [];
 
         if ($stateParams.id) {
@@ -25,24 +24,13 @@ export class ProjectController {
                 this.entity = data;
             });
         }
-
-        this.techs = [];
-        let iconsRepo = factory.getRepository(Tech, '/techs');
-        iconsRepo.getAll({
-            page: 1,
-            limit: 9999
-        }).then((response) => {
-            this.techs = response;
-        });
     }
 
     update() {
         let data = {
-            project: {
-                logo: this.entity.logo,
-                flayer: this.entity.flayer,
-                technologies: this.entity.technologies || [],
-                description: this.entity.description
+            tech: {
+                name: this.entity.name,
+                logo: this.entity.logo
             }
         };
 
@@ -76,4 +64,4 @@ export class ProjectController {
     }
 }
 
-ProjectController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];
+TechController.$inject = ['$stateParams', 'RepositoryFactory', 'Flash'];

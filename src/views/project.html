@@ -17,11 +17,16 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id}" id="presentation">
                     <div class="page-header">
-                        <h1>
-                            {{ $ctrl.entity.logo }}
-                        </h1>
+                        <h1><img ng-src="{{ $ctrl.entity.logo }}"></h1>
                     </div>
+                    <h3 class="title">Tech Stack</h3>
+                    <ul>
+                        <li ng-repeat="tech in $ctrl.entity.technologies">
+                            <h5>{{ tech.name }}</h5>
+                        </li>
+                    </ul>
                     <p>{{ $ctrl.entity.description }}</p>
+                    <p><img ng-src="{{ $ctrl.entity.flayer }}"></p>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" ng-class="{active: $ctrl.params.id == ''}" id="editor">
@@ -37,14 +42,40 @@
                                    autofocus>
                             <validator form="$ctrl.form" field="company" model="$ctrl.entity.logo" errors="$ctrl.errors"></validator>
                         </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': projectForm.flayer.$touched && projectForm.flayer.$invalid }">
+                            <input type="url"
+                                   ng-model="$ctrl.entity.flayer"
+                                   id="flayer"
+                                   name="flayer"
+                                   class="form-control"
+                                   placeholder="Flayer"
+                                   required
+                                   autofocus>
+                            <validator form="$ctrl.form" field="flayer" model="$ctrl.entity.flayer" errors="$ctrl.errors"></validator>
+                        </div>
+
+                        <div class="form-group required" ng-class="{ 'has-error': projectForm.technologies.$touched && projectForm.technologies.$invalid }">
+                            <label for="technologies" class="sr-only">Tech Stack</label>
+                            <select name="technologies"
+                                    id="technologies"
+                                    class="form-control"
+                                    ng-model="$ctrl.entity.technologies"
+                                    multiple
+                                    required>
+                                <option ng-repeat="option in $ctrl.techs" value="{{option.id}}">{{option.name}}</option>
+                            </select>
+                            <validator form="$ctrl.form" field="technologies" model="$ctrl.entity.technologies" errors="$ctrl.errors"></validator>
+                        </div>
+
                         <div class="form-group required" ng-class="{ 'has-error': projectForm.description.$touched && projectForm.description.$invalid }">
                             <label for="description" class="sr-only">Description</label>
-                    <textarea ng-model="$ctrl.entity.description"
-                              id="description"
-                              name="description"
-                              class="form-control"
-                              required>
-                    </textarea>
+                            <textarea ng-model="$ctrl.entity.description"
+                                      id="description"
+                                      name="description"
+                                      class="form-control"
+                                      required>
+                            </textarea>
                             <validator form="$ctrl.form" field="description" model="$ctrl.entity.description" errors="$ctrl.errors"></validator>
                         </div>
 

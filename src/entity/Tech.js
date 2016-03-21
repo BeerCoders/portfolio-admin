@@ -7,14 +7,13 @@
  * file that was distributed with this source code.
  */
 
-export class Project {
+export class Tech {
 
     constructor(parameters = {}) {
         this.id = parameters.id;
+        this.name = parameters.name;
         this.logo = parameters.logo;
-        this.flayer = parameters.flayer;
-        this.technologies = parameters.technologies || [];
-        this.description = parameters.description;
+        this.projects = parameters.projects || [];
         this.created = parameters.created;
         this.updated = parameters.updated;
     }
