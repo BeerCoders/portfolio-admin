@@ -12,7 +12,7 @@
                 <tbody>
                 <tr ng-repeat="entity in $ctrl.items">
                     <td>{{ entity.name }}</td>
-                    <td><img ng-src="{{ entity.logo }}"/></td>
+                    <td><img ng-src="{{ entity.logo }}" height="40" width="40"></td>
                     <td>
                         <a href ui-sref="skill({id: entity.id})">
                             <i class="fa fa-pencil-square-o"></i>
