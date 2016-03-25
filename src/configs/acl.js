@@ -20,7 +20,7 @@ export function config(AccessServiceProvider) {
         storage: 'localStorage',
         storageKey: 'user'
     };
-    AccessServiceProvider.config(myConfig);
+    AccessServiceProvider.configure(myConfig);
 }
 
 run.$inject = ['$rootScope', '$state', 'Flash'];
