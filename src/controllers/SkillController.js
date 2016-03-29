@@ -44,7 +44,8 @@ export class SkillController {
         let data = {
             skill: {
                 value: this.entity.value,
-                tech: this.entity.tech.id || this.entity.tech
+                name: this.entity.tech ? this.entity.tech.name : this.entity.name,
+                tech: this.entity.tech.id || this.entity.tech || ''
             }
         };
 

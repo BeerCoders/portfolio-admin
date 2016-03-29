@@ -14,6 +14,7 @@ export class Skill {
     constructor(parameters = {}) {
         this.id = parameters.id;
         this.value = parameters.value;
+        this.name = parameters.name || '';
         this.tech = new Tech(parameters.tech);
         this.created = parameters.created;
         this.updated = parameters.updated;
