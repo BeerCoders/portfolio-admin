@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="entity in $ctrl.items">
-                    <td>{{ entity.tech.name }}</td>
+                    <td>{{ entity.name}} {{ entity.tech.name }}</td>
                     <td>{{ entity.value }}</td>
                     <td>
                         <a href ui-sref="skill({id: entity.id})">
